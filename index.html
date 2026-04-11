@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ProsperiaMC | Premium Survival SMP with custom world generation, dungeons, and player-driven economy" />
+  <meta name="keywords" content="Minecraft, SMP, Survival, Server, Custom World, Dungeons, Economy, ProsperiaMC" />
+  <meta name="author" content="ProsperiaMC Team" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="ProsperiaMC | Premium Survival SMP" />
+  <meta property="og:description" content="A survival world that actually feels alive. Custom terrain, dungeons, land claims, and player economy." />
+  <meta property="og:image" content="assets/icons/ProsperiaMC logo.png" />
+  <meta property="og:url" content="https://prosperiamc.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>ProsperiaMC | Premium Survival SMP</title>
+  
+  <!-- Google Fonts: Poppins (general) and Minecraft Font (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/icons/ProsperiaMC logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ========== NAVIGATION ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">
+        <img src="assets/icons/ProsperiaMC logo.png" alt="ProsperiaMC Logo" class="logo-img" />
+        <span class="logo-text">ProsperiaMC</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="rules.html">Rules</a>
+        <a href="#store">Store</a>
+        <a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a>
+        <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Custom World Generation • Dungeons • Land Claims • Player Economy</p>
+      <h1>A survival world that actually feels alive.</h1>
+
+      <p class="hero-text">
+        Meaningful progression, custom exploration, dungeon challenges, player-driven economy,
+        and long-term survival without pay-to-win mechanics. Build. Explore. Prosper
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="copyIP()">
+          <span>📋</span> Copy Server IP
+        </button>
+        <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+          <span>💬</span> Join Discord
+        </a>
+        <a href="#store" class="btn btn-tertiary">
+          <span>🛒</span> Cosmetic Store
+        </a>
+      </div>
+
+      <p id="copy-message" class="copy-message"></p>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES SECTION ========== -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Makes ProsperiaMC Different</h2>
+        <p class="section-subtitle">Premium systems designed for long-term exploration and progression</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="card card-feature">
+          <div class="card-icon">🌍</div>
+          <h3>Custom Terrain</h3>
+          <p>Handcrafted biomes and structures that reward exploration and discovery. Every region tells a story.</p>
+        </div>
+
+        <div class="card card-feature">
+          <div class="card-icon">🏰</div>
+          <h3>Dungeons</h3>
+          <p>Custom dungeon-style challenges with rare loot and meaningful encounters. Face meaningful challenges.</p>
+        </div>
+
+        <div class="card card-feature">
+          <div class="card-icon">🛡️</div>
+          <h3>Land Claims</h3>
+          <p>Build safely with protected land claims. Develop grand projects at your own pace without fear.</p>
+        </div>
+
+        <div class="card card-feature">
+          <div class="card-icon">💎</div>
+          <h3>Player Economy</h3>
+          <p>Auction house and player-driven trading markets. Earn through skill, not shortcuts.</p>
+        </div>
+
+        <div class="card card-feature">
+          <div class="card-icon">✨</div>
+          <h3>Custom Enchantments</h3>
+          <p>Unique enchantment systems add depth. Discover powerful combinations and progression paths.</p>
+        </div>
+
+        <div class="card card-feature">
+          <div class="card-icon">🎯</div>
+          <h3>Safari Nets</h3>
+          <p>Capture and relocate creatures. New mechanics for animal husbandry and farm optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROGRESSION SYSTEMS SECTION ========== -->
+  <section id="progression" class="progression">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for Long-Term Progression</h2>
+        <p class="section-subtitle">Earn rewards through meaningful gameplay, not shortcuts</p>
+      </div>
+
+      <div class="progression-grid">
+        <div class="card card-progression">
+          <div class="card-title-icon">
+            <span>🎣</span>
+            <h3>PyroFishing</h3>
+          </div>
+          <p>Advanced fishing with leveling systems, rare catches, and meaningful rewards. Progression through patience and skill.</p>
+          <div class="progression-bar">
+            <div class="progression-fill" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <div class="card card-progression">
+          <div class="card-title-icon">
+            <span>⛏️</span>
+            <h3>PyroMining</h3>
+          </div>
+          <p>Mining reimagined with progressive systems. Find rare ores, level your skills, and unlock special abilities.</p>
+          <div class="progression-bar">
+            <div class="progression-fill" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="card card-progression">
+          <div class="card-title-icon">
+            <span>⚔️</span>
+            <h3>McMMO</h3>
+          </div>
+          <p>Level diverse skills from combat to farming. Specialize your playstyle and grow in your chosen direction.</p>
+          <div class="progression-bar">
+            <div class="progression-fill" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progression-highlight">
+        <h3>No Shortcuts, Pure Growth</h3>
+        <p>Every reward is earned through play. Long-term progression means your achievements are meaningful and your home is truly yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STORE SECTION ========== -->
+  <section id="store" class="store">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cosmetic-Only Store</h2>
+        <p class="section-subtitle">Support the server with purely visual perks</p>
+      </div>
+
+      <div class="store-content">
+        <div class="store-info">
+          <p>
+            Our store features only visual cosmetics and quality-of-life features. Never pay-to-win.
+            Every item is purely cosmetic and helps fund server development and maintenance.
+          </p>
+
+          <div class="store-features">
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Cosmetic Particles & Effects</span>
+            </div>
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Special Chat Tags & Colors</span>
+            </div>
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Pet Cosmetics & Trails</span>
+            </div>
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Cosmetic Armor & Skins</span>
+            </div>
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Zero Gameplay Advantage</span>
+            </div>
+            <div class="feature-check">
+              <span class="icon">✓</span>
+              <span>Supports Server Growth</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-cta store-cta-glow">
+          <p>Browse our cosmetic collection and support the server.</p>
+          <button class="btn btn-primary" id="open-store-modal">
+            <span>🛍️</span> Open Store
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>ProsperiaMC</h4>
+          <p>A premium Minecraft survival SMP focused on quality, progression, and exploration.</p>
+        </div>
+
+        <div class="footer-section quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="#store">Store</a></li>
+            <li><a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://www.discord.gg/T3ed7sV3uz" target="_blank" rel="noopener noreferrer">Discord Server</a></li>
+            <li><a href="#store">View Store</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Join ProsperiaMC</h4>
+          <button class="btn-footer" onclick="copyIP()">📋 Copy Server IP</button>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 ProsperiaMC. Not affiliated with Mojang Studios or Microsoft.</p>
+        <p>Minecraft is a trademark of Mojang Studios.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <span>↑</span>
+  </button>
+
+  <!-- Store Modal -->
+  <div id="store-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>🛍️ Cosmetic Store</h2>
+      <p>Our cosmetic store is currently under development. We're working hard to bring you amazing visual perks that support the server without affecting gameplay!</p>
+      <p>Features coming soon:</p>
+      <ul>
+        <li>Particle Effects & Trails</li>
+        <li>Chat Tags & Colors</li>
+        <li>Pet Cosmetics</li>
+        <li>Armor Skins</li>
+      </ul>
+      <p>Stay tuned for updates on our Discord!</p>
+      <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <span>💬</span> Join Discord for Updates
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

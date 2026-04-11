@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ProsperiaMC rules and enforcement policy." />
+  <title>ProsperiaMC | Official Minecraft Server Rules</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">
+        <img src="assets/icons/ProsperiaMC logo.png" alt="ProsperiaMC Logo" class="logo-img" />
+        <span class="logo-text">ProsperiaMC</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#progression">Progression</a>
+        <a href="index.html#store">Store</a>
+        <a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a>
+        <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Rules • Fair Play • Community Standards</p>
+      <h1>ProsperiaMC Server Rules</h1>
+      <p class="hero-text">
+        By joining ProsperiaMC, you agree to these rules and staff decisions. Read carefully before joining.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="index.html" class="btn btn-secondary">
+          <span>&#x1F3E0;</span> Back to Home
+        </a>
+        <button class="btn btn-primary" onclick="copyIP()">
+          <span>&#x1F4CB;</span> Copy Server IP
+        </button>
+        <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-tertiary" target="_blank" rel="noopener noreferrer">
+          <span>&#x1F4AC;</span> Join Discord
+        </a>
+      </div>
+      <p id="copy-message" class="copy-message"></p>
+    </div>
+  </section>
+
+  <section class="rules">
+    <div class="container">
+      <div class="section-header">
+        <h2>Official Minecraft Server Rules</h2>
+        <p class="section-subtitle">By joining ProsperiaMC, you agree to these rules and staff decisions.</p>
+      </div>
+
+      <div class="rules-content">
+        <div class="rule-category">
+          <h3>1) CHEATING & EXPLOITS</h3>
+          <p>Not allowed:</p>
+          <ul>
+            <li>hacked clients</li>
+            <li>x-ray / ESP</li>
+            <li>macros / autoclickers</li>
+            <li>dupes</li>
+            <li>anti-AFK bypasses</li>
+            <li>any unintended mechanic</li>
+          </ul>
+          <p>Litematica Printer and easyPlace are allowed. However, if configured too aggressively, they may be limited by the anticheat and cause lagbacks or failed placements.</p>
+          <p>If it bypasses intended gameplay, it is not allowed.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>2) CLAIMS & WILDERNESS</h3>
+          <p>Not allowed (inside claims without permission):</p>
+          <ul>
+            <li>block interaction</li>
+            <li>opening containers</li>
+            <li>stealing</li>
+            <li>griefing</li>
+            <li>traps</li>
+            <li>indirect damage</li>
+          </ul>
+          <p>Wilderness: Everything is allowed.</p>
+          <p>If any part of a build, farm, storage, villager setup, redstone, or wall is outside the claim, that part is fully lootable and destroyable, even if it only extends by 1 block.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>3) COMBAT & RAIDING</h3>
+          <p>Allowed:</p>
+          <ul>
+            <li>PvP in wilderness</li>
+            <li>raiding in wilderness</li>
+            <li>looting in wilderness</li>
+            <li>TP-killing</li>
+            <li>ambushes</li>
+          </ul>
+          <p>Not allowed:</p>
+          <ul>
+            <li>TP-trapping</li>
+            <li>combat logging</li>
+            <li>safe-zone abuse</li>
+            <li>claim-edge immunity abuse</li>
+            <li>repeated PvP harassment</li>
+          </ul>
+          <p>TP-killing is allowed. Using teleport itself as an unavoidable death trap is not.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>4) CHAT & PLAYER CONDUCT</h3>
+          <p>Not allowed:</p>
+          <ul>
+            <li>spam</li>
+            <li>harassment</li>
+            <li>threats</li>
+            <li>NSFW content</li>
+            <li>impersonation</li>
+            <li>advertising</li>
+            <li>harmful statements involving self-harm, suicide, or real-life violence</li>
+            <li>messages intended to distress</li>
+          </ul>
+          <p>Serious safety-related chat violations may lead to instant mute or ban.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>5) ECONOMY & FARMS</h3>
+          <p>Not allowed:</p>
+          <ul>
+            <li>using alt accounts</li>
+            <li>AFK profit abuse</li>
+            <li>market manipulation</li>
+            <li>bypassing taxes, limits, or cooldowns</li>
+            <li>unintended infinite profit loops</li>
+            <li>passive systems made only for unfair profit</li>
+          </ul>
+          <p>Unfair gains may be removed, wiped, or rolled back.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>6) STAFF & INVESTIGATIONS</h3>
+          <p>Not allowed:</p>
+          <ul>
+            <li>refusing freeze checks</li>
+            <li>hiding evidence</li>
+            <li>moving illegal items</li>
+            <li>using alts during punishment</li>
+            <li>interfering with moderation</li>
+          </ul>
+          <p>Players must cooperate with staff investigations.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>7) LOOPHOLES</h3>
+          <p>Using wording loopholes, plugin behavior, or technicalities to justify obvious abuse is not allowed.</p>
+          <p>Staff enforce by intent and impact, not by literal wording alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rules">
+    <div class="container">
+      <div class="section-header">
+        <h2>Official Server Punishment Policy</h2>
+        <p class="section-subtitle">All punishments on ProsperiaMC follow an escalation ladder based on severity, prior history, intent, scale, and server impact.</p>
+      </div>
+
+      <div class="rules-content">
+        <div class="policy-summary">
+          Punishments may include warnings, mutes, temporary bans, long-term bans, permanent bans, IP bans, balance resets, inventory wipes, storage wipes, transfer reversals, and rollback of farms & builds.
+        </div>
+
+        <div class="rule-category">
+          <h3>1) CHEATING & EXPLOITS</h3>
+          <p>Includes hacked clients, x-ray, ESP, macros, autoclickers, anti-AFK bypasses, duping, and exploit abuse.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → 7–14 day ban</li>
+            <li>2nd offense → 30–60 day ban</li>
+            <li>3rd offense → permanent ban or IP ban</li>
+          </ul>
+          <p>Additional enforcement: Any gains from cheating may be fully removed, including: x-ray mined ores, duped items, exploit-generated items, unfair balances, linked alt storage and wealth. This may include full balance resets, inventory wipes, and transfer rollbacks.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>2) CLAIMS, THEFT & GRIEFING</h3>
+          <p>Unauthorized access, stealing, claim griefing, traps inside claims, and indirect damage.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → 3–5 day ban</li>
+            <li>2nd offense → 10–14 day ban</li>
+            <li>3rd offense → 30+ day ban</li>
+          </ul>
+          <p>Severe griefing, mass theft, or repeated targeting may escalate directly.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>3) COMBAT ABUSE</h3>
+          <p>Includes TP-trapping, combat logging, safe-zone abuse, claim-edge immunity abuse, and repeated PvP harassment.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → warning or 12h–1 day ban</li>
+            <li>2nd offense → 3–7 day ban</li>
+            <li>3rd offense → 14–30 day ban</li>
+            <li>extreme repeat abuse → permanent ban</li>
+          </ul>
+        </div>
+
+        <div class="rule-category">
+          <h3>4) CHAT & PLAYER CONDUCT</h3>
+          <p>Includes spam, harassment, slurs, threats, NSFW, impersonation, false accusations, and harmful real-life statements.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>minor spam → 30m–6h mute</li>
+            <li>harassment / toxicity → 6h–24h mute, then 3–7 day bans</li>
+            <li>slurs / hate speech → 1–7 day mute or ban</li>
+            <li>threats / severe harmful behavior → 7–30 day ban</li>
+            <li>extreme repeat offenses → permanent ban</li>
+          </ul>
+          <p>Safety-related threats may escalate instantly.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>5) ECONOMY & FARM ABUSE</h3>
+          <p>Includes alt farming, market manipulation, AFK profit abuse, plugin loopholes, bypassing taxes/cooldowns, and infinite money loops.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → 5–7 day ban + rollback</li>
+            <li>2nd offense → 14–30 day ban + full balance reset</li>
+            <li>3rd offense → permanent ban</li>
+          </ul>
+          <p>All unfair wealth may be: deleted, rolled back, transferred back, removed from linked accounts, wiped from farms, storage, and machines. This includes x-ray wealth, alt-farmed money, exploit profit, economy bullying, and manipulated market gains.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>6) STAFF & INVESTIGATIONS</h3>
+          <p>Includes refusing freeze checks, hiding evidence, alt evasion, moving illegal items, or interfering with investigations.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → 30 day ban</li>
+            <li>2nd offense → permanent ban</li>
+          </ul>
+          <p>Helping another player evade punishment may be treated identically.</p>
+        </div>
+
+        <div class="rule-category">
+          <h3>7) LOOPHOLE ABUSE</h3>
+          <p>Using wording loopholes, plugin behavior, or technicalities to justify obvious abuse.</p>
+          <p>Typical punishment ladder:</p>
+          <ul>
+            <li>1st offense → 3–5 day ban</li>
+            <li>2nd offense → 14 day ban</li>
+            <li>3rd offense → 30 day ban</li>
+            <li>extreme repeat abuse → permanent ban</li>
+          </ul>
+        </div>
+
+        <p>Final punishments are always based on context, evidence, scale, intent, prior history, and server damage caused. Staff reserve the right to escalate immediately in severe cases involving economy damage, mass griefing, ban evasion, or malicious exploit abuse.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>ProsperiaMC</h4>
+          <p>Premium survival SMP with custom progression and a friendly community.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#progression">Progression</a></li>
+            <li><a href="index.html#store">Store</a></li>
+            <li><a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://www.discord.gg/T3ed7sV3uz" target="_blank" rel="noopener noreferrer">Discord Server</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Need help?</h4>
+          <p class="ip-footer">Use Discord for rule questions, appeals, and support.</p>
+          <a class="btn-footer" href="https://www.discord.gg/T3ed7sV3uz" target="_blank" rel="noopener noreferrer">Visit Discord</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ProsperiaMC. Not affiliated with Mojang Studios or Microsoft.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
