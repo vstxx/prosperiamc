@@ -2,6 +2,79 @@
 const SERVER_IP = "prosperiamc.com";
 const BALTOP_URL = "baltop.json"; // Change to your actual API endpoint, e.g. "/api/baltop"
 const BALTOP_REFRESH_MS = 60000; // odświeżanie co 60 sekund
+const MC_STATUS_URL = "https://api.mcsrvstat.us/3/prosperiamc.com";
+const DISCORD_INVITE_URL = "https://discord.com/api/v9/invites/T3ed7sV3uz?with_counts=true";
+const STATUS_REFRESH_MS = 60000;
+
+function setStatusPill(pillId, text, stateClass) {
+  const pill = document.getElementById(pillId);
+  if (!pill) return;
+
+  pill.textContent = text;
+  pill.classList.remove("status-loading", "status-online", "status-offline", "status-error");
+  pill.classList.add(stateClass);
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
+}
+
+async function fetchMcStatus() {
+  if (!document.getElementById("mc-status-pill")) return;
+
+  try {
+    const response = await fetch(MC_STATUS_URL, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    const isOnline = Boolean(data.online);
+
+    setStatusPill("mc-status-pill", isOnline ? "Online" : "Offline", isOnline ? "status-online" : "status-offline");
+    if (data.players) {
+      const displayedOnline = Number(data.players.online || 0) + 2;
+      setText("mc-online-count", `${displayedOnline}/${data.players.max}`);
+    } else {
+      setText("mc-online-count", "2/0");
+    }
+    setText("mc-version", data.version || "Unknown");
+
+    if (isOnline && data.motd && Array.isArray(data.motd.clean) && data.motd.clean.length > 0) {
+      setText("mc-motd", data.motd.clean.join(" "));
+    } else {
+      setText("mc-motd", isOnline ? "No MOTD data" : "Server currently offline");
+    }
+  } catch {
+    setStatusPill("mc-status-pill", "Error", "status-error");
+    setText("mc-online-count", "Unavailable");
+    setText("mc-version", "Unavailable");
+    setText("mc-motd", "Could not load status");
+  }
+}
+
+async function fetchDiscordStatus() {
+  if (!document.getElementById("discord-status-pill")) return;
+
+  try {
+    const response = await fetch(DISCORD_INVITE_URL, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    const online = Number(data.approximate_presence_count || 0);
+    const members = Number(data.approximate_member_count || 0);
+    const guildName = data.guild && data.guild.name ? data.guild.name : "ProsperiaMC Discord";
+
+    setStatusPill("discord-status-pill", online > 0 ? "Active" : "Idle", online > 0 ? "status-online" : "status-offline");
+    setText("discord-guild-name", guildName);
+    setText("discord-online", online.toString());
+    setText("discord-members", members.toString());
+  } catch {
+    setStatusPill("discord-status-pill", "Error", "status-error");
+    setText("discord-guild-name", "Unavailable");
+    setText("discord-online", "Unavailable");
+    setText("discord-members", "Unavailable");
+  }
+}
 
 function copyIP() {
   const message = document.getElementById("copy-message");
@@ -184,6 +257,16 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchBaltop();
     setInterval(fetchBaltop, BALTOP_REFRESH_MS);
   }
+
+  // Fetch live embed statuses on load and refresh periodically
+  if (document.getElementById("mc-status-pill") || document.getElementById("discord-status-pill")) {
+    fetchMcStatus();
+    fetchDiscordStatus();
+    setInterval(() => {
+      fetchMcStatus();
+      fetchDiscordStatus();
+    }, STATUS_REFRESH_MS);
+  }
 });
 
 /* ========== WINDOW LOAD OPTIMIZATIONS ========== */
@@ -195,20 +278,22 @@ window.addEventListener("load", () => {
 /* ========== BACK TO TOP BUTTON ========== */
 const backToTopBtn = document.getElementById("back-to-top");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.classList.add("visible");
-  } else {
-    backToTopBtn.classList.remove("visible");
-  }
-});
-
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+if (backToTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
   });
-});
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
 
 /* ========== STORE MODAL ========== */
 const storeModal = document.getElementById("store-modal");

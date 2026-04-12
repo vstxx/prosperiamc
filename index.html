@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="ProsperiaMC | Premium Survival SMP" />
   <meta property="og:description" content="A survival world that actually feels alive. Custom terrain, dungeons, land claims, and player economy." />
-  <meta property="og:image" content="assets/icons/ProsperiaMC logo.png" />
+  <meta property="og:image" content="assets/icons/ProsperiaMC logo1.png" />
   <meta property="og:url" content="https://prosperiamc.com" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>ProsperiaMC | Premium Survival SMP</title>
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/icons/ProsperiaMC logo.png" type="image/png" />
+  <link rel="icon" href="assets/icons/ProsperiaMC logo1.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -26,12 +26,12 @@
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="#" class="logo">
-        <img src="assets/icons/ProsperiaMC logo.png" alt="ProsperiaMC Logo" class="logo-img" />
+        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo1" class="logo-img" />
         <span class="logo-text">ProsperiaMC</span>
       </a>
 
       <nav class="nav-links">
-        <a href="#features">Features</a>
+        <a href="wiki.html">Wiki</a>
         <a href="rules.html">Rules</a>
         <a href="#store">Store</a>
         <a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a>
@@ -52,7 +52,7 @@
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <p class="eyebrow">Custom World Generation • Dungeons • Land Claims • Player Economy</p>
-      <h1>A survival world that actually feels alive.</h1>
+      <h1 class="title-gold-glow">A survival world that actually feels alive.</h1>
 
       <p class="hero-text">
         Meaningful progression, custom exploration, dungeon challenges, player-driven economy,
@@ -226,6 +226,46 @@
     </div>
   </section>
 
+  <!-- ========== LIVE STATUS EMBEDS SECTION ========== -->
+  <section id="live-status" class="status-embeds">
+    <div class="container">
+      <div class="section-header">
+        <h2>Live Server Embeds</h2>
+        <p class="section-subtitle">Real-time Minecraft and Discord server status</p>
+      </div>
+
+      <div class="embeds-grid">
+        <article class="card embed-card">
+          <div class="embed-title-row">
+            <h3>🟢 Minecraft Server Status</h3>
+            <span id="mc-status-pill" class="status-pill status-loading">Loading</span>
+          </div>
+          <p class="embed-subtitle">Live data from <strong>prosperiamc.com</strong></p>
+          <div class="embed-details">
+            <p><span class="embed-label">Address:</span> <span class="embed-value">prosperiamc.com</span></p>
+            <p><span class="embed-label">Online:</span> <span id="mc-online-count" class="embed-value">Loading...</span></p>
+            <p><span class="embed-label">Version:</span> <span id="mc-version" class="embed-value">Loading...</span></p>
+            <p><span class="embed-label">MOTD:</span> <span id="mc-motd" class="embed-value">Loading...</span></p>
+          </div>
+        </article>
+
+        <article class="card embed-card">
+          <div class="embed-title-row">
+            <h3>💬 Discord Server Status</h3>
+            <span id="discord-status-pill" class="status-pill status-loading">Loading</span>
+          </div>
+          <p class="embed-subtitle">Live invite stats from Discord</p>
+          <div class="embed-details">
+            <p><span class="embed-label">Invite:</span> <span class="embed-value">discord.gg/T3ed7sV3uz</span></p>
+            <p><span class="embed-label">Server:</span> <span id="discord-guild-name" class="embed-value">Loading...</span></p>
+            <p><span class="embed-label">Online:</span> <span id="discord-online" class="embed-value">Loading...</span></p>
+            <p><span class="embed-label">Members:</span> <span id="discord-members" class="embed-value">Loading...</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
@@ -238,7 +278,7 @@
         <div class="footer-section quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#features">Features</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
             <li><a href="rules.html">Rules</a></li>
             <li><a href="#store">Store</a></li>
             <li><a href="http://prosperiamc.com:8100/#world1:0:0:0:1500:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">LiveMap</a></li>
