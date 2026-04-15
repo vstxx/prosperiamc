@@ -295,21 +295,29 @@ if (backToTopBtn) {
   });
 }
 
-/* ========== STORE MODAL ========== */
-const storeModal = document.getElementById("store-modal");
-const openStoreModal = document.getElementById("open-store-modal");
-const modalClose = document.querySelector(".modal-close");
 
-openStoreModal.addEventListener("click", () => {
-  storeModal.style.display = "block";
-});
 
-modalClose.addEventListener("click", () => {
-  storeModal.style.display = "none";
-});
+/* ========== WIKI NAV SCROLL-SPY ========== */
+(function () {
+  const navItems = document.querySelectorAll(".toc-nav-item");
+  if (!navItems.length) return;
 
-window.addEventListener("click", (e) => {
-  if (e.target === storeModal) {
-    storeModal.style.display = "none";
+  const sectionIds = Array.from(navItems).map((a) => a.getAttribute("href").replace("#", ""));
+
+  function updateActive() {
+    let currentId = sectionIds[0];
+    for (const id of sectionIds) {
+      const section = document.getElementById(id);
+      if (section && section.getBoundingClientRect().top <= 160) {
+        currentId = id;
+      }
+    }
+    navItems.forEach((item) => {
+      const href = item.getAttribute("href").replace("#", "");
+      item.classList.toggle("active", href === currentId);
+    });
   }
-});
+
+  window.addEventListener("scroll", updateActive, { passive: true });
+  updateActive();
+})();

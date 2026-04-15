@@ -1893,121 +1893,131 @@ h4 {
   display: none;
 }
 
-/* TOC specific styling */
-#toc {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.06);
+/* ═══════════════════════════════════════════════════════════════
+   WIKI NAVIGATION — DUAL-LAYER PILL NAV BAR
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes tocNavFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tocNavGlow {
+  0%, 100% { box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03); }
+  50%      { box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 53, 0.06), 0 0 0 1px rgba(255, 107, 53, 0.06); }
+}
+
+/* ── Outer ── */
+.toc-nav {
   margin-top: 16px;
   margin-bottom: 64px;
-  padding: 36px 40px;
-  position: relative;
-}
-
-#toc::before {
-  background: radial-gradient(circle at top left, rgba(255, 107, 53, 0.14), transparent 45%);
-}
-
-/* Decorative bottom line under TOC */
-#toc::after {
-  content: '';
-  position: absolute;
-  bottom: -32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.35), var(--accent-yellow), rgba(255, 107, 53, 0.35), transparent);
-  pointer-events: none;
-}
-
-#toc:hover {
-  background: rgba(255, 255, 255, 0.065);
-  border-color: rgba(255, 107, 53, 0.18);
-}
-
-#toc .toc-list {
-  list-style: none;
-  list-style-type: none;
-  margin: 0 !important;
-  padding: 0 !important;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  animation: tocNavFadeIn 0.5s ease both;
 }
 
-#toc .toc-list li {
-  display: block;
-  list-style: none;
-  list-style-type: none;
-  margin: 0 !important;
-  padding: 0 !important;
+/* ── Dark outer frame ── */
+.toc-nav-frame {
+  display: inline-flex;
+  padding: 6px;
+  border-radius: 60px;
+  background: linear-gradient(170deg, #0d0d14, #08080e);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  animation: tocNavGlow 5s ease-in-out infinite;
 }
 
-#toc .toc-list li::marker {
-  content: "";
+/* ── Lighter inner track (the gray pill from the image) ── */
+.toc-nav-track {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 5px 6px;
+  border-radius: 54px;
+  background: linear-gradient(170deg, rgba(38, 38, 50, 0.7), rgba(28, 28, 38, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-#toc .toc-item {
-  display: grid;
-  grid-template-columns: 40px auto 1fr auto;
-  align-items: baseline;
-  column-gap: 10px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  padding: 8px 0;
-  font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.6;
-  border-bottom: none;
-  transition: color 0.25s ease;
-}
-
-#toc .toc-item:hover {
-  color: var(--accent-orange);
-  background: none;
-  transform: none;
-}
-
-#toc .toc-index {
-  min-width: 34px;
+/* ── Nav item ── */
+.toc-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
   font-weight: 500;
-  margin-right: 8px;
-}
-
-#toc .toc-title {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
   white-space: nowrap;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
 }
 
-#toc .toc-dots {
-  flex: 1;
-  border-bottom: 1px dotted rgba(255, 255, 255, 0.45);
-  transform: translateY(-2px);
+.toc-nav-item:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-#toc .toc-page {
-  min-width: 24px;
-  text-align: right;
+/* Active state — white pill like "Awards" in the reference */
+.toc-nav-item.active {
+  color: #111;
+  background: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* ── CTA / accent item (last one — dark pill with border) ── */
+.toc-nav-cta {
+  color: rgba(255, 210, 63, 0.85);
+  background: rgba(255, 107, 53, 0.08);
+  border-color: rgba(255, 107, 53, 0.2);
+  font-weight: 600;
+}
+
+.toc-nav-cta:hover {
+  color: #fff;
+  background: rgba(255, 107, 53, 0.18);
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 0 16px rgba(255, 107, 53, 0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .toc-nav-frame {
+    border-radius: 28px;
+  }
+  .toc-nav-track {
+    border-radius: 24px;
+    gap: 2px;
+  }
+  .toc-nav-item {
+    font-size: 0.74rem;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .toc-nav-frame {
+    border-radius: 22px;
+    padding: 5px;
+  }
+  .toc-nav-track {
+    border-radius: 18px;
+    padding: 4px 5px;
+    gap: 2px;
+  }
+  .toc-nav-item {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+  }
 }
 
 .wiki-content {
   width: 100%;
   margin: 0;
-}
-
-.toc-header {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.toc-label {
-  display: inline-flex;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 107, 53, 0.12);
-  color: var(--accent-orange);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  font-size: 0.85rem;
 }
 
 .subsection-grid {
