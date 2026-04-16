@@ -299,7 +299,7 @@ if (backToTopBtn) {
 
 /* ========== WIKI NAV SCROLL-SPY ========== */
 (function () {
-  const navItems = document.querySelectorAll(".toc-nav-item");
+  const navItems = document.querySelectorAll(".pill-link");
   if (!navItems.length) return;
 
   const sectionIds = Array.from(navItems).map((a) => a.getAttribute("href").replace("#", ""));

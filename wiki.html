@@ -9,6 +9,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .wiki-pill-nav {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      justify-content: center !important;
+      gap: 2px !important;
+      margin: 16px auto 48px !important;
+      padding: 6px 8px !important;
+      background: linear-gradient(180deg, rgba(38, 38, 42, 0.92), rgba(28, 28, 32, 0.95)) !important;
+      border: 1px solid rgba(255, 255, 255, 0.04) !important;
+      border-radius: 50px !important;
+      width: fit-content !important;
+      max-width: 100% !important;
+      backdrop-filter: blur(12px) !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+    }
+    .pill-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      padding: 7px 14px !important;
+      border-radius: 50px !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      color: rgba(255, 255, 255, 0.4) !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border: 1px solid transparent !important;
+      transition: color 0.2s, background 0.2s, border-color 0.2s !important;
+    }
+    .pill-link:hover {
+      color: rgba(255, 255, 255, 0.85) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+    .pill-link.active {
+      color: #0e0e14 !important;
+      font-weight: 600 !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.08) !important;
+    }
+    .pill-cta {
+      color: rgba(255, 210, 63, 0.85) !important;
+      background: rgba(255, 107, 53, 0.06) !important;
+      border-color: rgba(255, 107, 53, 0.18) !important;
+    }
+    .pill-cta:hover {
+      color: #fff !important;
+      background: rgba(255, 107, 53, 0.12) !important;
+      border-color: rgba(255, 107, 53, 0.35) !important;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar" id="navbar">
@@ -52,24 +104,21 @@
 
   <section class="wiki">
     <div class="container">
+      <div class="wiki-pill-nav">
+        <a href="#economy" class="pill-link">💰 Economy</a>
+        <a href="#lands-nations-wars" class="pill-link">⚔️ Lands</a>
+        <a href="#pyromining" class="pill-link">⛏️ Mining</a>
+        <a href="#pyrofishing" class="pill-link">🎣 Fishing</a>
+        <a href="#excellent-enchants" class="pill-link">✨ Enchants</a>
+        <a href="#bounties" class="pill-link">🎯 Bounties</a>
+        <a href="#orders" class="pill-link">📜 Orders</a>
+        <a href="#utility-systems" class="pill-link">🔧 Utility</a>
+        <a href="#command-codex" class="pill-link">⌨️ Commands</a>
+        <a href="#ranks" class="pill-link pill-cta">👑 Ranks</a>
+      </div>
+
       <div class="wiki-content">
         <div class="rules-content">
-          <nav class="toc-nav">
-            <div class="toc-nav-frame">
-              <div class="toc-nav-track">
-                <a href="#economy" class="toc-nav-item">💰 Economy</a>
-                <a href="#lands-nations-wars" class="toc-nav-item">⚔️ Lands</a>
-                <a href="#pyromining" class="toc-nav-item">⛏️ Mining</a>
-                <a href="#pyrofishing" class="toc-nav-item">🎣 Fishing</a>
-                <a href="#excellent-enchants" class="toc-nav-item">✨ Enchants</a>
-                <a href="#bounties" class="toc-nav-item">🎯 Bounties</a>
-                <a href="#orders" class="toc-nav-item">📜 Orders</a>
-                <a href="#utility-systems" class="toc-nav-item">🔧 Utility</a>
-                <a href="#command-codex" class="toc-nav-item">⌨️ Commands</a>
-                <a href="#character" class="toc-nav-item toc-nav-cta">🏛️ Character</a>
-              </div>
-            </div>
-          </nav>
 
           <div id="economy" class="wiki-thread">
             <h3>I. ECONOMY</h3>
@@ -90,7 +139,7 @@
               <li>unclaim cashback: <strong>15%</strong></li>
               <li>rename: <strong>$1,000</strong></li>
               <li>transfer ownership: <strong>$5,000</strong></li>
-              <li>upkeep: <strong>$1,000 per chunk / 7 days</strong></li>
+              <li>upkeep: <strong>$500 per chunk / 7 days</strong></li>
               <li>upkeep grace for new lands: <strong>3 days</strong></li>
               <li>bank enabled</li>
               <li>owner replacement on inactivity: enabled</li>
@@ -105,7 +154,7 @@
               <li>rename: <strong>$1,000</strong></li>
               <li>tag length: <strong>1–4</strong></li>
               <li>tax cap: <strong>$5,000 per chunk</strong></li>
-              <li>upkeep: <strong>$750 per chunk</strong></li>
+              <li>upkeep: <strong>$500 per chunk</strong></li>
               <li>new nation grace: <strong>3 days</strong></li>
               <li>unpaid land taxes remove the land from nation</li>
             </ul>
@@ -396,22 +445,116 @@
             </div>
           </div>
 
-          <div id="character" class="wiki-thread">
-            <h3>X. THE CHARACTER OF PROSPERIA</h3>
-            <p>Prosperia is not a world of isolated plugins.</p>
-            <p>It is a connected civilization of:</p>
-            <ul>
-              <li>treasuries</li>
-              <li>borders</li>
-              <li>industrial chains</li>
-              <li>relic economies</li>
-              <li>hidden contracts</li>
-              <li>sovereign wars</li>
-              <li>gear philosophies</li>
-              <li>player-driven history</li>
-            </ul>
-            <p>The longer one remains within it, the less it resembles survival — and the more it begins to resemble a living state.</p>
+          <div id="ranks" class="wiki-thread">
+            <h3>X. RANKS</h3>
+            <p>Ranks in Prosperia are <strong>earned through gameplay — not purchased</strong>. Every rank is obtainable through in-game resources and levels. There is no shortcut. Your rank reflects your commitment to the world.</p>
+            <p>Use <code>/ranklist</code> to view all available ranks and their requirements. Use <code>/rankup (rank)</code> to advance when you meet the criteria.</p>
+
+            <div class="rank-grid">
+              <div class="rank-card rank-default">
+                <div class="rank-header">
+                  <span class="rank-name">Default</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>2</strong> homes</li>
+                  <li><strong>1</strong> pwarp</li>
+                  <li><strong>2</strong> jobs</li>
+                  <li><strong>300</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-journeyman">
+                <div class="rank-header">
+                  <span class="rank-name">Journeyman</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>3</strong> homes</li>
+                  <li><strong>2</strong> pwarps</li>
+                  <li><strong>3</strong> jobs</li>
+                  <li><strong>350</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-explorer">
+                <div class="rank-header">
+                  <span class="rank-name">Explorer</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>4</strong> homes</li>
+                  <li><strong>3</strong> pwarps</li>
+                  <li><strong>4</strong> jobs</li>
+                  <li><strong>400</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-conqueror">
+                <div class="rank-header">
+                  <span class="rank-name">Conqueror</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>5</strong> homes</li>
+                  <li><strong>4</strong> pwarps</li>
+                  <li><strong>4</strong> jobs</li>
+                  <li><strong>450</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-prosperian">
+                <div class="rank-header">
+                  <span class="rank-name">Prosperian</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>6</strong> homes</li>
+                  <li><strong>5</strong> pwarps</li>
+                  <li><strong>5</strong> jobs</li>
+                  <li><strong>500</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-celestial">
+                <div class="rank-header">
+                  <span class="rank-name">Celestial</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>8</strong> homes</li>
+                  <li><strong>6</strong> pwarps</li>
+                  <li><strong>5</strong> jobs</li>
+                  <li><strong>550</strong> chunks</li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-paragon">
+                <div class="rank-header">
+                  <span class="rank-name">Paragon</span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>10</strong> homes</li>
+                  <li><strong>7</strong> pwarps</li>
+                  <li><strong>5</strong> jobs</li>
+                  <li><strong>600</strong> chunks</li>
+                  <li class="rank-perk-bonus"><code>/pweather</code></li>
+                  <li class="rank-perk-bonus"><code>/ptime</code></li>
+                </ul>
+              </div>
+
+              <div class="rank-card rank-ascendant">
+                <div class="rank-header">
+                  <span class="rank-name">Ascendant</span>
+                  <span class="rank-tag"></span>
+                </div>
+                <ul class="rank-perks">
+                  <li><strong>12</strong> homes</li>
+                  <li><strong>8</strong> pwarps</li>
+                  <li><strong>5</strong> jobs</li>
+                  <li><strong>650</strong> chunks</li>
+                  <li class="rank-perk-bonus"><code>/pweather</code></li>
+                  <li class="rank-perk-bonus"><code>/ptime</code></li>
+                  <li class="rank-perk-bonus">Message color</li>
+                </ul>
+              </div>
+            </div>
           </div>
+
 
         </div>
       </div>
