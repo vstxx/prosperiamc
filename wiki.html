@@ -11,60 +11,8 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Google AdSense verification code -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5962027787161870" crossorigin="anonymous"></script>
-  <style>
-    .wiki-pill-nav {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      justify-content: center !important;
-      gap: 2px !important;
-      margin: 16px auto 48px !important;
-      padding: 6px 8px !important;
-      background: linear-gradient(180deg, rgba(38, 38, 42, 0.92), rgba(28, 28, 32, 0.95)) !important;
-      border: 1px solid rgba(255, 255, 255, 0.04) !important;
-      border-radius: 50px !important;
-      width: fit-content !important;
-      max-width: 100% !important;
-      backdrop-filter: blur(12px) !important;
-      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
-    }
-    .pill-link {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 4px !important;
-      padding: 7px 14px !important;
-      border-radius: 50px !important;
-      font-family: 'Poppins', sans-serif !important;
-      font-size: 0.78rem !important;
-      font-weight: 500 !important;
-      color: rgba(255, 255, 255, 0.4) !important;
-      text-decoration: none !important;
-      white-space: nowrap !important;
-      border: 1px solid transparent !important;
-      transition: color 0.2s, background 0.2s, border-color 0.2s !important;
-    }
-    .pill-link:hover {
-      color: rgba(255, 255, 255, 0.85) !important;
-      background: rgba(255, 255, 255, 0.05) !important;
-    }
-    .pill-link.active {
-      color: #0e0e14 !important;
-      font-weight: 600 !important;
-      background: rgba(255, 255, 255, 0.9) !important;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.08) !important;
-    }
-    .pill-cta {
-      color: rgba(255, 210, 63, 0.85) !important;
-      background: rgba(255, 107, 53, 0.06) !important;
-      border-color: rgba(255, 107, 53, 0.18) !important;
-    }
-    .pill-cta:hover {
-      color: #fff !important;
-      background: rgba(255, 107, 53, 0.12) !important;
-      border-color: rgba(255, 107, 53, 0.35) !important;
-    }
-  </style>
 </head>
-<body>
+<body class="wiki-page">
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="index.html" class="logo">
@@ -89,34 +37,37 @@
   </header>
 
   <section class="hero wiki-hero">
-    <div class="container">
-      <p class="eyebrow">ProsperiaMC Wiki</p>
-      <h1 class="title-gold-glow">Welcome to the official <strong>ProsperiaMC Wiki</strong></h1>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Wiki &bull; Systems &bull; Commands</p>
+      <h1 class="title-gold-glow">ProsperiaMC Wiki</h1>
       <p class="hero-text">
-        The central archive of the systems that govern wealth, territory, industry, conflict, and long-term identity across the world.
+        The central archive for economy, territory, industry, combat, utility systems, commands, and long-term progression across Prosperia.
       </p>
       <p class="hero-text">
-        Prosperia is built as a living survival civilization where every action — whether beneath the earth, across the sea, within fortified borders, or upon the battlefield — feeds into a larger sovereign structure.
+        Use it as a clean reference before building, trading, fighting, ranking up, or joining a nation.
       </p>
-      <p class="hero-text">
-        This codex records the principal systems through which that world moves.
-      </p>
+      <div class="hero-buttons">
+        <a href="#economy" class="btn btn-primary">Browse Wiki</a>
+        <a href="#command-codex" class="btn btn-secondary">Command Codex</a>
+        <a href="rules.html" class="btn btn-tertiary">Server Rules</a>
+      </div>
     </div>
   </section>
 
   <section class="wiki">
     <div class="container">
       <div class="wiki-pill-nav">
-        <a href="#economy" class="pill-link">💰 Economy</a>
-        <a href="#lands-nations-wars" class="pill-link">⚔️ Lands</a>
-        <a href="#pyromining" class="pill-link">⛏️ Mining</a>
-        <a href="#pyrofishing" class="pill-link">🎣 Fishing</a>
-        <a href="#excellent-enchants" class="pill-link">✨ Enchants</a>
-        <a href="#bounties" class="pill-link">🎯 Bounties</a>
-        <a href="#orders" class="pill-link">📜 Orders</a>
-        <a href="#utility-systems" class="pill-link">🔧 Utility</a>
-        <a href="#command-codex" class="pill-link">⌨️ Commands</a>
-        <a href="#ranks" class="pill-link pill-cta">👑 Ranks</a>
+        <a href="#economy" class="pill-link" data-index="I">Economy</a>
+        <a href="#lands-nations-wars" class="pill-link" data-index="II">Lands</a>
+        <a href="#pyromining" class="pill-link" data-index="III">Mining</a>
+        <a href="#pyrofishing" class="pill-link" data-index="IV">Fishing</a>
+        <a href="#excellent-enchants" class="pill-link" data-index="V">Enchants</a>
+        <a href="#bounties" class="pill-link" data-index="VI">Bounties</a>
+        <a href="#orders" class="pill-link" data-index="VII">Orders</a>
+        <a href="#utility-systems" class="pill-link" data-index="VIII">Utility</a>
+        <a href="#command-codex" class="pill-link" data-index="IX">Commands</a>
+        <a href="#ranks" class="pill-link pill-cta" data-index="X">Ranks</a>
       </div>
 
       <div class="wiki-content">
@@ -139,7 +90,7 @@
             <ul>
               <li>chunk claim: <strong>$100</strong></li>
               <li>unclaim cashback: <strong>15%</strong></li>
-              <li>rename: <strong>$1,000</strong></li>
+              <li>rename: <strong>$3,000</strong></li>
               <li>transfer ownership: <strong>$5,000</strong></li>
               <li>upkeep: <strong>$500 per chunk / 7 days</strong></li>
               <li>upkeep grace for new lands: <strong>3 days</strong></li>
@@ -373,16 +324,74 @@
 
           <div id="utility-systems" class="wiki-thread">
             <h3>VIII. UTILITY SYSTEMS</h3>
-            <h4>Safari Nets</h4>
-            <p>Portable containment for:</p>
-            <ul>
-              <li>villagers</li>
-              <li>livestock</li>
-              <li>hostile mobs</li>
-              <li>utility mobs</li>
-              <li>reusable variants</li>
-              <li>single-use variants</li>
-            </ul>
+            <p class="utility-lead">Compact tools for mob transport, web control, chance items, and survival logistics.</p>
+
+            <div class="utility-recipe-grid" aria-label="Utility crafting recipes">
+              <figure class="utility-recipe">
+                <img src="assets/wiki/safari-net-reusable-recipe.png" alt="Reusable Safari Net crafting recipe" loading="lazy" />
+                <figcaption>
+                  <span>Reusable</span>
+                  <strong>Safari Net</strong>
+                  <small>7 String + Eye of Ender</small>
+                </figcaption>
+              </figure>
+
+              <figure class="utility-recipe">
+                <img src="assets/wiki/safari-net-single-use-recipe.png" alt="Single-use Safari Net crafting recipe" loading="lazy" />
+                <figcaption>
+                  <span>Single-use</span>
+                  <strong>Safari Net</strong>
+                  <small>7 String + Ender Pearl</small>
+                </figcaption>
+              </figure>
+
+              <figure class="utility-recipe">
+                <img src="assets/wiki/rolling-dice-recipe.png" alt="Rolling Dice crafting recipe" loading="lazy" />
+                <figcaption>
+                  <span>Utility item</span>
+                  <strong>Rolling Dice</strong>
+                  <small>Black Dye + Bone Block</small>
+                </figcaption>
+              </figure>
+
+              <figure class="utility-recipe">
+                <img src="assets/wiki/web-duster-recipe.png" alt="Web Duster crafting recipe" loading="lazy" />
+                <figcaption>
+                  <span>Cobweb tool</span>
+                  <strong>Web Duster</strong>
+                  <small>String + Brush</small>
+                </figcaption>
+              </figure>
+
+              <figure class="utility-recipe">
+                <img src="assets/wiki/cobweb-recipe.png" alt="Cobweb crafting recipe" loading="lazy" />
+                <figcaption>
+                  <span>Block recipe</span>
+                  <strong>Cobweb Crafting</strong>
+                  <small>5 String</small>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="utility-detail-grid">
+              <div class="utility-detail">
+                <h4>Safari Nets</h4>
+                <p>Portable containment for villagers, livestock, hostile mobs, and utility mobs. The Eye of Ender variant is reusable, while the Ender Pearl variant is single-use.</p>
+              </div>
+              <div class="utility-detail">
+                <h4>Web Duster</h4>
+                <p>A modified brush used for cobweb handling, giving builders and explorers a dedicated tool for web-heavy areas.</p>
+              </div>
+              <div class="utility-detail">
+                <h4>Rolling Dice</h4>
+                <p>A compact chance item crafted from Black Dye and a Bone Block for player-made games, events, and decisions.</p>
+              </div>
+              <div class="utility-detail">
+                <h4>Cobweb Crafting</h4>
+                <p>String can be woven back into cobwebs for traps, decoration, redstone layouts, and utility builds.</p>
+              </div>
+            </div>
+
             <h4>Disenchanting</h4>
             <p>By combining an enchanted item and a book inside an anvil, enchantments may be extracted <strong>one by one</strong>, preserving the remaining identity of the item.</p>
             <p>This turns gear maintenance into a form of equipment archaeology.</p>
@@ -607,4 +616,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
