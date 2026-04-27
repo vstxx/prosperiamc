@@ -12,7 +12,7 @@
   <!-- Google AdSense verification code -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5962027787161870" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="rules-page">
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="index.html" class="logo">
@@ -36,7 +36,7 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero rules-hero">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <p class="eyebrow">Rules • Fair Play • Community Standards</p>
@@ -62,13 +62,23 @@
 
   <section class="rules">
     <div class="container">
-      <div class="section-header">
+      <div id="server-rules" class="section-header">
         <h2>Official Minecraft Server Rules</h2>
         <p class="section-subtitle">By joining ProsperiaMC, you agree to these rules and staff decisions.</p>
       </div>
 
+      <div class="rules-pill-nav" aria-label="Server rules sections">
+        <a href="#rules-cheating" class="pill-link" data-index="1">Cheating</a>
+        <a href="#rules-claims" class="pill-link" data-index="2">Claims</a>
+        <a href="#rules-combat" class="pill-link" data-index="3">Combat</a>
+        <a href="#rules-chat" class="pill-link" data-index="4">Conduct</a>
+        <a href="#rules-economy" class="pill-link" data-index="5">Economy</a>
+        <a href="#rules-staff" class="pill-link" data-index="6">Staff</a>
+        <a href="#rules-loopholes" class="pill-link" data-index="7">Loopholes</a>
+      </div>
+
       <div class="rules-content">
-        <div class="rule-category">
+        <div id="rules-cheating" class="rule-category">
           <h3>1) CHEATING & EXPLOITS</h3>
           <p>Not allowed:</p>
           <ul>
@@ -83,14 +93,14 @@
           <p>If it bypasses intended gameplay, it is not allowed.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-claims" class="rule-category">
           <h3>2) CLAIMS & WILDERNESS</h3>
           <p>In wilderness and in claims where you have permissions — everything is allowed.</p>
           <p>If any part of a build, farm, storage, villager setup, redstone, or wall is outside the claim, that part is fully lootable and destroyable, even if it only extends by 1 block.</p>
           <p>If a claim becomes surrounded by another claim, whether owned by the same player, the same group, or an enemy group, it must remain unblocked from at least two world directions. This ensures there is room for escape during war and space for future expansion.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-combat" class="rule-category">
           <h3>3) COMBAT & RAIDING</h3>
           <p>Allowed:</p>
           <ul>
@@ -111,7 +121,7 @@
           <p>TP-killing is allowed. Using teleport itself as an unavoidable death trap is not.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-chat" class="rule-category">
           <h3>4) CHAT & PLAYER CONDUCT</h3>
           <p>Not allowed:</p>
           <ul>
@@ -127,7 +137,7 @@
           <p>Serious safety-related chat violations may lead to instant mute or ban.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-economy" class="rule-category">
           <h3>5) ECONOMY & FARMS</h3>
           <p>Not allowed:</p>
           <ul>
@@ -141,7 +151,7 @@
           <p>Unfair gains may be removed, wiped, or rolled back.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-staff" class="rule-category">
           <h3>6) STAFF & INVESTIGATIONS</h3>
           <p>Not allowed:</p>
           <ul>
@@ -154,7 +164,7 @@
           <p>Players must cooperate with staff investigations.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="rules-loopholes" class="rule-category">
           <h3>7) LOOPHOLES</h3>
           <p>Using wording loopholes, plugin behavior, economy behavior, selling/buying edge cases, or technicalities to justify obvious abuse is not allowed.</p>
           <p>Staff enforce by intent and impact, not by literal wording alone.</p>
@@ -165,9 +175,19 @@
 
   <section class="rules">
     <div class="container">
-      <div class="section-header">
+      <div id="punishment-policy" class="section-header">
         <h2>Official Server Punishment Policy</h2>
         <p class="section-subtitle">All punishments on ProsperiaMC follow an escalation ladder based on severity, prior history, intent, scale, and server impact.</p>
+      </div>
+
+      <div class="rules-pill-nav" aria-label="Punishment policy sections">
+        <a href="#policy-cheating" class="pill-link" data-index="1">Cheating</a>
+        <a href="#policy-claims" class="pill-link" data-index="2">Claims</a>
+        <a href="#policy-combat" class="pill-link" data-index="3">Combat</a>
+        <a href="#policy-chat" class="pill-link" data-index="4">Conduct</a>
+        <a href="#policy-economy" class="pill-link" data-index="5">Economy</a>
+        <a href="#policy-staff" class="pill-link" data-index="6">Staff</a>
+        <a href="#policy-loopholes" class="pill-link" data-index="7">Loopholes</a>
       </div>
 
       <div class="rules-content">
@@ -175,19 +195,19 @@
           Punishments may include warnings, mutes, temporary bans, long-term bans, permanent bans, IP bans, balance resets, inventory wipes, storage wipes, transfer reversals, and rollback of farms & builds.
         </div>
 
-        <div class="rule-category">
+        <div id="policy-cheating" class="rule-category">
           <h3>1) CHEATING & EXPLOITS</h3>
           <p>Includes hacked clients, x-ray, ESP, macros, autoclickers, anti-AFK bypasses, duping, and exploit abuse.</p>
           <p>Typical punishment ladder:</p>
           <ul>
-            <li>1st offense → 7–14 day ban</li>
-            <li>2nd offense → 30–60 day ban</li>
-            <li>3rd offense → permanent ban or IP ban</li>
+            <li>1st offense → 3-7 day ban</li>
+            <li>2nd offense → 14-30 day ban</li>
+            <li>3rd offense → 90-365 day ban</li>
           </ul>
           <p>Additional enforcement: Any gains from cheating may be fully removed, including: x-ray mined ores, duped items, exploit-generated items, unfair balances, linked alt storage and wealth. This may include full balance resets, inventory wipes, and transfer rollbacks.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-claims" class="rule-category">
           <h3>2) CLAIMS, THEFT & GRIEFING</h3>
           <p>Unauthorized access, stealing, claim griefing, traps inside claims, and indirect damage.</p>
           <p>Typical punishment ladder:</p>
@@ -199,7 +219,7 @@
           <p>Severe griefing, mass theft, or repeated targeting may escalate directly.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-combat" class="rule-category">
           <h3>3) COMBAT ABUSE</h3>
           <p>Includes TP-trapping, combat logging, safe-zone abuse, claim-edge immunity abuse, and repeated PvP harassment.</p>
           <p>Typical punishment ladder:</p>
@@ -211,7 +231,7 @@
           </ul>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-chat" class="rule-category">
           <h3>4) CHAT & PLAYER CONDUCT</h3>
           <p>Includes spam, harassment, slurs, threats, NSFW, impersonation, false accusations, and harmful real-life statements.</p>
           <p>Typical punishment ladder:</p>
@@ -225,7 +245,7 @@
           <p>Safety-related threats may escalate instantly.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-economy" class="rule-category">
           <h3>5) ECONOMY & FARM ABUSE</h3>
           <p>Includes alt farming, market manipulation, AFK profit abuse, economy loopholes, shop/selling/buying abuse, plugin loopholes, bypassing taxes/cooldowns, and infinite money loops.</p>
           <p>Typical punishment ladder:</p>
@@ -238,7 +258,7 @@
           <p>At the full balance reset level, the reset is a full balance wipe to $0, not only removal of the amount staff can directly trace as unfair profit.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-staff" class="rule-category">
           <h3>6) STAFF & INVESTIGATIONS</h3>
           <p>Includes refusing freeze checks, hiding evidence, alt evasion, moving illegal items, or interfering with investigations.</p>
           <p>Typical punishment ladder:</p>
@@ -249,7 +269,7 @@
           <p>Helping another player evade punishment may be treated identically.</p>
         </div>
 
-        <div class="rule-category">
+        <div id="policy-loopholes" class="rule-category">
           <h3>7) LOOPHOLE ABUSE</h3>
           <p>Using wording loopholes, plugin behavior, economy behavior, selling/buying edge cases, or technicalities to justify obvious abuse. If the loophole directly creates economy or farm profit, staff may handle it under Economy & Farm Abuse instead.</p>
           <p>Typical punishment ladder:</p>

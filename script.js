@@ -297,27 +297,39 @@ if (backToTopBtn) {
 
 
 
-/* ========== WIKI NAV SCROLL-SPY ========== */
+/* ========== SECTION NAV SCROLL-SPY ========== */
 (function () {
-  const navItems = document.querySelectorAll(".pill-link");
-  if (!navItems.length) return;
+  const navGroups = document.querySelectorAll(".wiki-pill-nav, .rules-pill-nav");
+  if (!navGroups.length) return;
 
-  const sectionIds = Array.from(navItems).map((a) => a.getAttribute("href").replace("#", ""));
+  function updateActive(navGroup) {
+    const navItems = navGroup.querySelectorAll(".pill-link");
+    if (!navItems.length) return;
 
-  function updateActive() {
+    const sectionIds = Array.from(navItems)
+      .map((item) => item.getAttribute("href"))
+      .filter((href) => href && href.startsWith("#"))
+      .map((href) => href.replace("#", ""));
+
     let currentId = sectionIds[0];
+
     for (const id of sectionIds) {
       const section = document.getElementById(id);
       if (section && section.getBoundingClientRect().top <= 160) {
         currentId = id;
       }
     }
+
     navItems.forEach((item) => {
       const href = item.getAttribute("href").replace("#", "");
       item.classList.toggle("active", href === currentId);
     });
   }
 
-  window.addEventListener("scroll", updateActive, { passive: true });
-  updateActive();
+  function updateAll() {
+    navGroups.forEach(updateActive);
+  }
+
+  window.addEventListener("scroll", updateAll, { passive: true });
+  updateAll();
 })();

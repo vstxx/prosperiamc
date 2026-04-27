@@ -2538,10 +2538,11 @@ h4 {
 
 /* ========== WIKI READABILITY REFRESH ========== */
 .wiki-page .wiki-hero {
-  min-height: 72vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   align-items: center;
   justify-content: flex-start;
-  padding: 94px 0 82px;
+  padding: 108px 0 92px;
   text-align: left;
   background:
     linear-gradient(135deg, rgba(11, 15, 20, 0.72) 0%, rgba(11, 15, 20, 0.82) 52%, rgba(11, 15, 20, 0.78) 100%),
@@ -2720,6 +2721,11 @@ h4 {
   line-height: 1.45;
 }
 
+.wiki-page .wiki-thread h4:not(:first-of-type) {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .wiki-page .wiki-thread h5 {
   margin: 22px 0 10px;
   color: var(--accent-yellow);
@@ -2794,6 +2800,224 @@ h4 {
   border-top-color: rgba(255, 210, 63, 0.16);
 }
 
+/* ========== RULES PAGE REFRESH ========== */
+.rules-page .rules-hero {
+  min-height: 100svh;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 108px 0 92px;
+  text-align: left;
+}
+
+.rules-page .rules-hero .hero-content {
+  max-width: 860px;
+}
+
+.rules-page .rules-hero h1 {
+  max-width: 900px;
+}
+
+.rules-page .rules-hero .hero-text {
+  max-width: 760px;
+}
+
+.rules-page .rules {
+  padding: 74px 0 96px;
+}
+
+.rules-page .rules > .container {
+  width: min(1420px, 96vw);
+}
+
+.rules-page .rules-pill-nav {
+  position: sticky;
+  top: 88px;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  gap: 2px;
+  width: min(1180px, 100%);
+  margin: 0 auto 34px;
+  padding: 7px;
+  background: rgba(9, 12, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+}
+
+.rules-page .pill-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.64);
+  font-family: var(--title-font);
+  font-size: 0.54rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.rules-page .pill-link::before {
+  content: attr(data-index);
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 4px;
+  border: 1px solid rgba(255, 210, 63, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 210, 63, 0.72);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.rules-page .pill-link:hover,
+.rules-page .pill-link.active {
+  border-color: rgba(255, 210, 63, 0.16);
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+}
+
+.rules-page .pill-link:hover::before,
+.rules-page .pill-link.active::before {
+  border-color: rgba(255, 210, 63, 0.42);
+  color: var(--accent-yellow);
+}
+
+.rules-page .section-header {
+  max-width: 1180px;
+  margin: 0 auto 36px;
+  text-align: center;
+  scroll-margin-top: 152px;
+}
+
+.rules-page .section-header h2 {
+  margin-bottom: 14px;
+}
+
+.rules-page .section-header .section-subtitle {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.rules-page .rules-content {
+  max-width: 1180px;
+  padding: 0;
+}
+
+.rules-page .rule-category,
+.rules-page .policy-summary {
+  scroll-margin-top: 152px;
+}
+
+.rules-page .rule-category {
+  margin-bottom: 30px;
+  padding: 40px;
+  scroll-margin-top: 178px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-left: 6px solid rgba(255, 107, 53, 0.72);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(19, 23, 21, 0.92), rgba(11, 13, 12, 0.94));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.rules-page .rule-category::before {
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 107, 53, 0.1), transparent 42%);
+  opacity: 1;
+  transform: none;
+}
+
+.rules-page .rule-category:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 210, 63, 0.22);
+  border-left-color: var(--accent-yellow);
+  background: linear-gradient(180deg, rgba(23, 28, 24, 0.96), rgba(12, 14, 12, 0.96));
+}
+
+.rules-page .rule-category > * {
+  position: relative;
+}
+
+.rules-page .rule-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 210, 63, 0.18);
+  color: var(--accent-yellow);
+  font-size: 1.34rem;
+  line-height: 1.35;
+}
+
+.rules-page .rule-category h3::before {
+  content: '';
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 210, 63, 0.56);
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  box-shadow: 0 0 18px rgba(255, 107, 53, 0.18);
+}
+
+.rules-page .rule-category p {
+  max-width: 86ch;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.78;
+}
+
+.rules-page .rule-category > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 8px 30px;
+  margin: 18px 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.rules-page .rule-category > ul li {
+  position: relative;
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rules-page .rule-category > ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.82em;
+  width: 9px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 210, 63, 0.62);
+}
+
+.rules-page .policy-summary {
+  max-width: 1180px;
+  margin: 0 auto 32px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(22, 24, 20, 0.92), rgba(12, 14, 12, 0.95));
+  border: 1px solid rgba(255, 210, 63, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
 @media (max-width: 1100px) {
   .wiki-page .wiki-pill-nav {
     grid-template-columns: repeat(5, minmax(112px, 1fr));
@@ -2835,8 +3059,42 @@ h4 {
   }
 
   .wiki-page .wiki-hero {
-    min-height: 64vh;
-    padding: 58px 0 48px;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: 88px 0 40px;
+    background-attachment: scroll;
+  }
+
+  .rules-page .rules-hero {
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: 88px 0 40px;
+    background-attachment: scroll;
+  }
+
+  .rules-page .rules-pill-nav {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .rules-page .section-header {
+    margin-bottom: 28px;
+  }
+
+  .rules-page .rule-category {
+    padding: 26px 20px;
+    scroll-margin-top: 92px;
+  }
+
+  .rules-page .rule-category h3 {
+    align-items: flex-start;
+    font-size: 1rem;
+  }
+
+  .rules-page .rule-category > ul {
+    grid-template-columns: 1fr;
   }
 
   .wiki-page .wiki-pill-nav {
