@@ -1115,6 +1115,67 @@ h4 {
   font-size: 0.92rem;
 }
 
+.nation-power-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.35fr) repeat(2, minmax(220px, 1fr));
+  gap: 22px;
+  margin: 22px 0 28px;
+}
+
+.nation-power-card {
+  padding: 22px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.nation-power-card h6 {
+  margin: 0 0 12px;
+  color: var(--accent-yellow);
+  font-family: var(--title-font);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.nation-power-equals {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+}
+
+.nation-power-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nation-power-card li {
+  position: relative;
+  padding-left: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.72;
+}
+
+.nation-power-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.82em;
+  width: 8px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 210, 63, 0.62);
+}
+
+.nation-power-formula {
+  background: linear-gradient(180deg, rgba(24, 28, 24, 0.94), rgba(12, 14, 12, 0.94));
+}
+
+.nation-power-formula li strong {
+  color: #ffffff;
+}
+
 @media (max-width: 640px) {
   .utility-recipe-grid {
     grid-template-columns: 1fr;
@@ -1122,6 +1183,10 @@ h4 {
   }
 
   .utility-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nation-power-grid {
     grid-template-columns: 1fr;
   }
 }
