@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="ProsperiaMC rules and enforcement policy." />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="canonical" href="https://prosperiamc.com/rules.html" />
   <title>ProsperiaMC | Official Minecraft Server Rules</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,19 +18,19 @@
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="index.html" class="logo">
-        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo1" class="logo-img" />
+        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo" class="logo-img" width="1081" height="1081" decoding="async" />
         <span class="logo-text">ProsperiaMC</span>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
         <a href="wiki.html">Wiki</a>
-        <a href="rules.html">Rules</a>
+        <a href="rules.html" aria-current="page">Rules</a>
         <a href="https://shop.prosperiamc.com/" target="_blank" rel="noopener noreferrer">Store</a>
         <a href="https://bit.ly/prosperiamc" target="_blank" rel="noopener noreferrer">LiveMap</a>
         <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
       </nav>
 
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -49,14 +51,14 @@
         <a href="index.html" class="btn btn-secondary">
           <span>&#x1F3E0;</span> Back to Home
         </a>
-        <button class="btn btn-primary" onclick="copyIP()">
+        <button class="btn btn-primary" type="button" onclick="copyIP()">
           <span>&#x1F4CB;</span> Copy Server IP
         </button>
         <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-tertiary" target="_blank" rel="noopener noreferrer">
           <span>&#x1F4AC;</span> Join Discord
         </a>
       </div>
-      <p id="copy-message" class="copy-message"></p>
+      <p id="copy-message" class="copy-message" role="status" aria-live="polite"></p>
     </div>
   </section>
 
@@ -87,15 +89,16 @@
             <li>macros / autoclickers</li>
             <li>dupes</li>
             <li>anti-AFK bypasses</li>
-            <li>any unintended mechanic</li>
+            <li>intentional abuse of unintended mechanics</li>
           </ul>
           <p>Litematica Printer and easyPlace are allowed. However, if configured too aggressively, they may be limited by the anticheat and cause lagbacks or failed placements.</p>
-          <p>If it bypasses intended gameplay, it is not allowed.</p>
+          <p>If you discover a bug or unintended mechanic, report it instead of reproducing it, sharing it, hiding it, or profiting from it. Accidental discovery is not the issue; intentional abuse is.</p>
+          <p>If it bypasses intended gameplay, progression, economy limits, claims, combat restrictions, or staff enforcement, it is not allowed.</p>
         </div>
 
         <div id="rules-claims" class="rule-category">
           <h3>2) CLAIMS & WILDERNESS</h3>
-          <p>In wilderness and in claims where you have permissions — everything is allowed.</p>
+          <p>In wilderness and in claims where you have permissions, raiding, looting, PvP, and destruction are allowed unless another global rule is violated.</p>
           <p>If any part of a build, farm, storage, villager setup, redstone, or wall is outside the claim, that part is fully lootable and destroyable, even if it only extends by 1 block.</p>
           <p>If a claim becomes surrounded by another claim, whether owned by the same player, the same group, or an enemy group, it must remain unblocked from at least two world directions. This ensures there is room for escape during war and space for future expansion.</p>
         </div>
@@ -118,7 +121,8 @@
             <li>claim-edge immunity abuse</li>
             <li>repeated PvP harassment</li>
           </ul>
-          <p>TP-killing is allowed. Using teleport itself as an unavoidable death trap is not.</p>
+          <p>TP-killing is allowed when the target has a reasonable chance to react, move, fight back, or escape. Using teleport itself as an unavoidable death trap is not.</p>
+          <p>Repeated PvP harassment includes targeting the same player across sessions only to stop them from playing, spawn camping, following them after staff intervention, or continuing after a clear warning.</p>
         </div>
 
         <div id="rules-chat" class="rule-category">
@@ -128,9 +132,12 @@
             <li>spam</li>
             <li>harassment</li>
             <li>threats</li>
+            <li>doxxing or sharing private real-life information</li>
+            <li>hate speech, slurs, or discriminatory abuse</li>
             <li>NSFW content</li>
             <li>impersonation</li>
             <li>advertising</li>
+            <li>ban or mute evasion</li>
             <li>harmful statements involving self-harm, suicide, or real-life violence</li>
             <li>messages intended to distress</li>
           </ul>
@@ -141,9 +148,12 @@
           <h3>5) ECONOMY & FARMS</h3>
           <p>Not allowed:</p>
           <ul>
-            <li>using alt accounts</li>
+            <li>using alt accounts to bypass limits, generate profit, avoid cooldowns, evade punishment, store illegal items, or manipulate economy</li>
             <li>AFK profit abuse</li>
             <li>market manipulation</li>
+            <li>real-money trading or selling in-game items, currency, services, or accounts outside approved systems</li>
+            <li>chargeback abuse or store/payment abuse</li>
+            <li>scamming through trades, shops, auctions, services, or misleading agreements</li>
             <li>bypassing taxes, limits, or cooldowns</li>
             <li>unintended infinite profit loops</li>
             <li>passive systems made only for unfair profit</li>
@@ -314,7 +324,7 @@
 
         <div class="footer-section">
           <h4>Join ProsperiaMC</h4>
-          <button class="btn-footer" onclick="copyIP()">📋 Copy Server IP</button>
+          <button class="btn-footer" type="button" onclick="copyIP()">📋 Copy Server IP</button>
         </div>
       </div>
 

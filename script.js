@@ -79,26 +79,49 @@ async function fetchDiscordStatus() {
 function copyIP() {
   const message = document.getElementById("copy-message");
 
+  const showMessage = (text, color = "#4ade80") => {
+    if (!message) {
+      let toast = document.getElementById("copy-message-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "copy-message-toast";
+        toast.className = "copy-message-toast";
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
+        document.body.appendChild(toast);
+      }
+
+      toast.textContent = text;
+      toast.style.color = color;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2200);
+      return;
+    }
+
+    message.textContent = text;
+    message.style.opacity = "1";
+    message.style.color = color;
+  };
+
   if (!navigator.clipboard) {
-    message.textContent = "✗ Clipboard not available.";
+    showMessage("Clipboard not available.", "#ff6b6b");
     return;
   }
 
   navigator.clipboard.writeText(SERVER_IP).then(() => {
-    message.textContent = "✓ Server IP pasted to clipboard.";
-    message.style.opacity = "1";
-    message.style.color = "#4ade80";
+    showMessage("Server IP copied to clipboard.");
 
-    setTimeout(() => {
-      message.style.opacity = "0";
+    if (message) {
       setTimeout(() => {
-        message.textContent = "";
-        message.style.opacity = "1";
-      }, 300);
-    }, 2000);
+        message.style.opacity = "0";
+        setTimeout(() => {
+          message.textContent = "";
+          message.style.opacity = "1";
+        }, 300);
+      }, 2000);
+    }
   }).catch(() => {
-    message.textContent = "✗ Nie udało się skopiować IP.";
-    message.style.color = "#ff6b6b";
+    showMessage("Could not copy the server IP.", "#ff6b6b");
   });
 }
 
@@ -107,22 +130,31 @@ function renderBaltop(rows) {
   if (!table) return;
 
   if (!rows || rows.length === 0) {
-    table.innerHTML = `<tr><td colspan="3">Brak danych do wyświetlenia.</td></tr>`;
+    table.textContent = "";
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 3;
+    cell.textContent = "No data to display.";
+    row.appendChild(cell);
+    table.appendChild(row);
     return;
   }
 
-  table.innerHTML = rows.slice(0, 10).map((row, index) => `
-    <tr>
-      <td>${index + 1}</td>
-      <td>${row.player}</td>
-      <td>${row.balance}</td>
-    </tr>
-  `).join("");
+  table.textContent = "";
+  rows.slice(0, 10).forEach((row, index) => {
+    const tableRow = document.createElement("tr");
+    [index + 1, row.player, row.balance].forEach((value) => {
+      const cell = document.createElement("td");
+      cell.textContent = value ?? "";
+      tableRow.appendChild(cell);
+    });
+    table.appendChild(tableRow);
+  });
 }
 
 async function fetchBaltop() {
   const note = document.querySelector(".leaderboard-note");
-  if (note) note.textContent = "Ładowanie danych...";
+  if (note) note.textContent = "Loading data...";
 
   try {
     const response = await fetch(BALTOP_URL, { cache: "no-store" });
@@ -134,10 +166,10 @@ async function fetchBaltop() {
     const rows = Array.isArray(data) ? data : data.baltop || data.top || [];
     renderBaltop(rows);
 
-    if (note) note.textContent = "Dane aktualne. Odświeżanie co 60 sekund.";
+    if (note) note.textContent = "Data is current. Refreshing every 60 seconds.";
   } catch (error) {
     renderBaltop([]);
-    if (note) note.textContent = `Błąd ładowania: ${error.message}`;
+    if (note) note.textContent = `Loading error: ${error.message}`;
   }
 }
 
@@ -165,6 +197,7 @@ if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("active");
     mobileMenuBtn.classList.toggle("active");
+    mobileMenuBtn.setAttribute("aria-expanded", navLinks.classList.contains("active") ? "true" : "false");
   });
 
   // Close menu when a link is clicked
@@ -172,6 +205,7 @@ if (mobileMenuBtn) {
     link.addEventListener("click", () => {
       navLinks.classList.remove("active");
       mobileMenuBtn.classList.remove("active");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
     });
   });
 
@@ -180,6 +214,7 @@ if (mobileMenuBtn) {
     if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
       navLinks.classList.remove("active");
       mobileMenuBtn.classList.remove("active");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
     }
   });
 }
@@ -199,8 +234,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all cards and section content for reveal animations
-document.querySelectorAll(".hero, .card, .info-card, .progression-highlight, .store-cta, .section-header, .hero-buttons, .footer").forEach((el) => {
+// Observe lower-page content for reveal animations without delaying the first viewport.
+document.querySelectorAll(".card, .info-card, .progression-highlight, .store-cta, .section-header, .footer").forEach((el) => {
   el.classList.add("reveal");
   observer.observe(el);
 });
@@ -267,12 +302,27 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchDiscordStatus();
     }, STATUS_REFRESH_MS);
   }
-});
 
-/* ========== WINDOW LOAD OPTIMIZATIONS ========== */
-window.addEventListener("load", () => {
-  // Trigger initial animations
-  document.body.style.opacity = "1";
+  const wikiSearch = document.getElementById("wiki-search");
+  const wikiThreads = Array.from(document.querySelectorAll(".wiki-thread"));
+  const wikiEmptyMessage = document.getElementById("wiki-empty-message");
+
+  if (wikiSearch && wikiThreads.length) {
+    wikiSearch.addEventListener("input", () => {
+      const query = wikiSearch.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      wikiThreads.forEach((thread) => {
+        const matches = thread.textContent.toLowerCase().includes(query);
+        thread.hidden = query.length > 0 && !matches;
+        if (!thread.hidden) visibleCount += 1;
+      });
+
+      if (wikiEmptyMessage) {
+        wikiEmptyMessage.hidden = visibleCount > 0;
+      }
+    });
+  }
 });
 
 /* ========== BACK TO TOP BUTTON ========== */

@@ -10,7 +10,10 @@
   <meta property="og:title" content="ProsperiaMC | Premium Survival SMP" />
   <meta property="og:description" content="A survival world that actually feels alive. Custom terrain, dungeons, land claims, and player economy." />
   <meta property="og:image" content="assets/icons/ProsperiaMC logo1.png" />
+  <meta property="og:image:alt" content="ProsperiaMC logo" />
   <meta property="og:url" content="https://prosperiamc.com" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="canonical" href="https://prosperiamc.com/" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>ProsperiaMC | Premium Survival SMP</title>
   
@@ -28,11 +31,11 @@
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="#" class="logo">
-        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo1" class="logo-img" />
+        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo" class="logo-img" width="1081" height="1081" decoding="async" />
         <span class="logo-text">ProsperiaMC</span>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
         <a href="wiki.html">Wiki</a>
         <a href="rules.html">Rules</a>
         <a href="https://shop.prosperiamc.com/" target="_blank" rel="noopener noreferrer">Store</a>
@@ -41,7 +44,7 @@
       </nav>
 
       <!-- Mobile menu button -->
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -62,7 +65,7 @@
       </p>
 
       <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="copyIP()">
+        <button class="btn btn-primary" type="button" onclick="copyIP()">
           <span>📋</span> Copy Server IP
         </button>
         <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
@@ -73,7 +76,7 @@
         </a>
       </div>
 
-      <p id="copy-message" class="copy-message"></p>
+      <p id="copy-message" class="copy-message" role="status" aria-live="polite"></p>
     </div>
   </section>
 
@@ -297,7 +300,7 @@
 
         <div class="footer-section">
           <h4>Join ProsperiaMC</h4>
-          <button class="btn-footer" onclick="copyIP()">📋 Copy Server IP</button>
+          <button class="btn-footer" type="button" onclick="copyIP()">📋 Copy Server IP</button>
         </div>
       </div>
 
@@ -311,7 +314,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
     <span>↑</span>
   </button>
 

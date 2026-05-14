@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="ProsperiaMC Wiki | The central archive of the systems that govern wealth, territory, industry, conflict, and long-term identity." />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="canonical" href="https://prosperiamc.com/wiki.html" />
   <title>ProsperiaMC | Prosperia Wiki</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,19 +18,19 @@
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="index.html" class="logo">
-        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo1" class="logo-img" />
+        <img src="assets/icons/ProsperiaMC logo1.png" alt="ProsperiaMC logo" class="logo-img" width="1081" height="1081" decoding="async" />
         <span class="logo-text">ProsperiaMC</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="wiki.html">Wiki</a>
+      <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
+        <a href="wiki.html" aria-current="page">Wiki</a>
         <a href="rules.html">Rules</a>
         <a href="https://shop.prosperiamc.com/" target="_blank" rel="noopener noreferrer">Store</a>
         <a href="https://bit.ly/prosperiamc" target="_blank" rel="noopener noreferrer">LiveMap</a>
         <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
       </nav>
 
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -36,42 +38,91 @@
     </div>
   </header>
 
-  <section class="hero wiki-hero">
+  <section class="hero rules-hero">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="eyebrow">Wiki &bull; Systems &bull; Commands</p>
-      <h1 class="title-gold-glow">ProsperiaMC Wiki</h1>
+      <p class="eyebrow">Wiki • Systems • Commands</p>
+      <h1 class="title-gold-glow">ProsperiaMC Server Wiki</h1>
       <p class="hero-text">
-        The central archive for economy, territory, industry, combat, utility systems, commands, and long-term progression across Prosperia.
+        Use the ProsperiaMC Wiki as your reference for economy, territory, commands, ranks, recipes, and progression.
       </p>
-      <p class="hero-text">
-        Use it as a clean reference before building, trading, fighting, ranking up, or joining a nation.
-      </p>
+
       <div class="hero-buttons">
-        <a href="#economy" class="btn btn-primary">Browse Wiki</a>
-        <a href="#command-codex" class="btn btn-secondary">Command Codex</a>
-        <a href="rules.html" class="btn btn-tertiary">Server Rules</a>
+        <a href="index.html" class="btn btn-secondary">
+          <span>&#x1F3E0;</span> Back to Home
+        </a>
+        <button class="btn btn-primary" type="button" onclick="copyIP()">
+          <span>&#x1F4CB;</span> Copy Server IP
+        </button>
+        <a href="https://www.discord.gg/T3ed7sV3uz" class="btn btn-tertiary" target="_blank" rel="noopener noreferrer">
+          <span>&#x1F4AC;</span> Join Discord
+        </a>
       </div>
+      <p id="copy-message" class="copy-message" role="status" aria-live="polite"></p>
     </div>
   </section>
 
-  <section class="wiki">
-    <div class="container">
-      <div class="wiki-pill-nav">
-        <a href="#economy" class="pill-link" data-index="I">Economy</a>
-        <a href="#lands-nations-wars" class="pill-link" data-index="II">Lands</a>
-        <a href="#pyromining" class="pill-link" data-index="III">Mining</a>
-        <a href="#pyrofishing" class="pill-link" data-index="IV">Fishing</a>
-        <a href="#excellent-enchants" class="pill-link" data-index="V">Enchants</a>
-        <a href="#bounties" class="pill-link" data-index="VI">Bounties</a>
-        <a href="#orders" class="pill-link" data-index="VII">Orders</a>
-        <a href="#utility-systems" class="pill-link" data-index="VIII">Utility</a>
-        <a href="#command-codex" class="pill-link" data-index="IX">Commands</a>
-        <a href="#ranks" class="pill-link pill-cta" data-index="X">Ranks</a>
-      </div>
+  <section class="wiki wiki-redesign" aria-labelledby="wiki-index-title">
+    <div class="container wiki-shell">
+      <aside class="wiki-sidebar" aria-label="Wiki section index">
+        <div class="wiki-sidebar-card">
+          <p class="wiki-kicker">Index</p>
+          <h2 id="wiki-index-title">Wiki Sections</h2>
+          <nav class="wiki-pill-nav">
+            <a href="#economy" class="pill-link" data-index="I">Economy</a>
+            <a href="#lands-nations-wars" class="pill-link" data-index="II">Lands</a>
+            <a href="#pyromining" class="pill-link" data-index="III">Mining</a>
+            <a href="#pyrofishing" class="pill-link" data-index="IV">Fishing</a>
+            <a href="#excellent-enchants" class="pill-link" data-index="V">Enchants</a>
+            <a href="#bounties" class="pill-link" data-index="VI">Bounties</a>
+            <a href="#orders" class="pill-link" data-index="VII">Orders</a>
+            <a href="#utility-systems" class="pill-link" data-index="VIII">Utility</a>
+            <a href="#command-codex" class="pill-link" data-index="IX">Commands</a>
+            <a href="#ranks" class="pill-link pill-cta" data-index="X">Ranks</a>
+          </nav>
+        </div>
+      </aside>
 
-      <div class="wiki-content">
-        <div class="rules-content">
+      <main class="wiki-main">
+        <div class="wiki-toolbar">
+          <div>
+            <p class="wiki-kicker">Knowledge Base</p>
+            <h2>Find the system before you need it</h2>
+            <p>Scan the core server systems, jump directly to commands, or filter sections by topic.</p>
+          </div>
+
+          <label class="wiki-search" for="wiki-search">
+            <span>Search wiki</span>
+            <input id="wiki-search" type="search" placeholder="Try lands, fishing, ranks..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="wiki-overview-grid" aria-label="Common wiki shortcuts">
+          <a href="#lands-nations-wars" class="wiki-overview-card">
+            <span>Territory</span>
+            <strong>Lands, Nations & Wars</strong>
+            <small>Claims, upkeep, power index, captures, tribute.</small>
+          </a>
+          <a href="#utility-systems" class="wiki-overview-card">
+            <span>Crafting</span>
+            <strong>Utility Recipes</strong>
+            <small>Safari Nets, Relic Pearl, Web Duster, Cobwebs.</small>
+          </a>
+          <a href="#command-codex" class="wiki-overview-card">
+            <span>Reference</span>
+            <strong>Command Codex</strong>
+            <small>Territory, nations, wars, fishing, mining, utility.</small>
+          </a>
+          <a href="#ranks" class="wiki-overview-card">
+            <span>Progression</span>
+            <strong>Earned Ranks</strong>
+            <small>Homes, pwarps, jobs, vaults, chunks, perks.</small>
+          </a>
+        </div>
+
+        <p id="wiki-empty-message" class="wiki-empty-message" hidden>No wiki sections match that search.</p>
+
+        <div class="wiki-thread-list" id="wiki-results">
 
           <div id="economy" class="wiki-thread">
             <h3>I. ECONOMY</h3>
@@ -107,7 +158,7 @@
               <li>rename: <strong>$1,000</strong></li>
               <li>tag length: <strong>1–4</strong></li>
               <li>tax cap: <strong>$5,000 per chunk</strong></li>
-              <li>upkeep: <strong>$500 per chunk</strong></li>
+              <li>upkeep: <strong>$450 per chunk</strong></li>
               <li>new nation grace: <strong>3 days</strong></li>
               <li>unpaid land taxes remove the land from nation</li>
             </ul>
@@ -657,7 +708,7 @@
 
 
         </div>
-      </div>
+      </main>
     </div>
   </section>
 
@@ -689,7 +740,7 @@
 
         <div class="footer-section">
           <h4>Join ProsperiaMC</h4>
-          <button class="btn-footer" onclick="copyIP()">📋 Copy Server IP</button>
+          <button class="btn-footer" type="button" onclick="copyIP()">📋 Copy Server IP</button>
         </div>
       </div>
 
